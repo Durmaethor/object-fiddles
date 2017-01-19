@@ -58,7 +58,7 @@ that is named color, with the value being the color of your backpack. */
 
   var backPack = {}
   var item = 'firstPocket';
-  
+
   backPack[item] = 'chapstick';
 
 //After you do the above, alert your entire backPack object.
@@ -93,7 +93,7 @@ Instead, console.log your whole backPack object and then check out the console. 
 
 //Now, loop through your object and alert every value. *Tyler --> 24 --> 6'0 --> Male, etc etc
 
-// Loop and alert code here... 
+// Loop and alert code here...
 
 
 
@@ -127,7 +127,13 @@ Instead, console.log your whole backPack object and then check out the console. 
 
 //Create an object called states that has 5 US states as properties with the values being their population (doesn't have to be accurate).
 
-  //Code Here
+  var states = {
+    Washington: 25000,
+    Oregon: 23000,
+    California: 45000,
+    Idaho: 15000,
+    Utah: 32000
+  }
 
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
 
