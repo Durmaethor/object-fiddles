@@ -158,19 +158,15 @@ var user1 = {
 /*Above you're given a user object. Loop through the user object checking to make sure
 that each value is truthy. If it's not truthy, remove it from the object. */
 
-  //Code Here
+for(var i = 0; i < user1.length; i++) {
+  
+}
 
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
-
-  Change to this
-
 
 
 
 //NEXT PROBLEM
-
-
-
 
 var user2 = {
         name: 'Tyler McGinnis',
