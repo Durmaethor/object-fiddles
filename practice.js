@@ -93,7 +93,9 @@ Instead, console.log your whole backPack object and then check out the console. 
 
 //Now, loop through your object and alert every value. *Tyler --> 24 --> 6'0 --> Male, etc etc
 
-// Loop and alert code here...
+/*for (var prop in alsoMe) {
+  alert(alsoMe[prop]);
+}*/
 
 
 
@@ -115,7 +117,9 @@ Instead, console.log your whole backPack object and then check out the console. 
 
 //Now, loop through your album object alerting every song title individually.
 
-  // Loop and alert code here...
+/*for (var key in album) {
+  alert(key);
+}*/
 
 
 
@@ -137,7 +141,11 @@ Instead, console.log your whole backPack object and then check out the console. 
 
 //Now, loop through your states object and if the states population is greater than 30K, alert that state.
 
-  //Code Here
+/*for (var key in states) {
+  if(states[key] > 30000) {
+  alert(key);
+  }
+}*/
 
 
 
@@ -158,11 +166,18 @@ var user1 = {
 /*Above you're given a user object. Loop through the user object checking to make sure
 that each value is truthy. If it's not truthy, remove it from the object. */
 
-for(var i = 0; i < user1.length; i++) {
-  
+for(var i in user1) {
+  if( user1[i] !== true) {
+    delete user1[i];
+  }
 }
 
 //Once you get your truthy Object, Change the remaining values in the object to be specific to you (name: 'your name', username: 'your username'), rather than my information.
+
+user1.name = 'Ryan Kramer'
+user1.pwHash = '1qaz2wsx'
+user1.username = 'RKramer'
+
 
 
 
@@ -182,33 +197,38 @@ var user2 = {
 //Let's say I, the user, decided to change my name and email address to the following
 // name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
 
-  //Code Here
+  user2.name = 'Tyler S. McGinnis'
+  user2.email = 'tyler.mcginnis@devmounta.in'
 
 //Now call the sayEmail method that's on the user object which will alert the users email
 
-  //Code Here
-
-
+//user2.sayEmail();
 
 
 //NEXT PROBLEM
 
 
-
-
 //Create an empty object called methodCollection.
 
-  //Code Here
+ 
 
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
-  //Code Here
+   var methodCollection = {
+     alertHello: function(){
+       alert('hello');
+     },
+     logHello: function() {
+       console.log('hello');
+     }
+   }
 
 //Now call your alertHello and logHello methods.
 
-  //Code Here
+  //methodCollection.alertHello();
+  //methodCollection.logHello();
 
 
 
@@ -216,10 +236,18 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
 
 
-// Create a function called makePerson which takes in name, birthday, ssn as its
-// parameters and returns a new object with all of the information that you passed in.
+/* Create a function called makePerson which takes in name, birthday, ssn as its
+ parameters and returns a new object with all of the information that you passed in.*/
 
-  //Code Here
+  function makePerson(name, birthday, ssn){
+      var person = {};
+      person.name = name;
+      person.birthday = birthday;
+      person.ssn = ssn;
+      return person;
+  };
+
+  var firstPerson = makePerson('Ryan', '6/13', '555123456');
 
 
 
@@ -229,9 +257,15 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
 // Create a function called makeCard which takes in cardNumber, expirationDate, and securityCode to make a Credit Card object and returns that object so that whenever you invoke makeCard, you get a brand new credit card.
 
-  //Code Here
+  function makeCard(cardNumber, expirationDate, securityCode) {
+    var creditCard = {};
+      creditCard.cardNumber = cardNumber;
+      creditCard.expirationDate = expirationDate;
+      creditCard.securityCode = securityCode;
+      return creditCard;
+  }
 
-
+var card1 = makeCard('5564', '3/20', '191');
 
 //NEXT PROBLEM
 
@@ -242,4 +276,15 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
    Have bindCard merge the two parameters together into a new object which contains all the properties from the person as well as the creditcard. While Object.assign would give you the answer, specRunner requires an answer without using it.
 */
 
-  //Code Here
+  function bindCard(person, creditCard) {
+    var newCard = {};
+    newCard.name = person.name;
+    newCard.birthday = person.birtday;
+    newCard.ssn = person.ssn;
+    newCard.cardNumber = creditCard.cardNumber;
+    newCard.expirationDate = creditCard.expirationDate;
+    newCard.securityCode = creditCard.securityCode;
+    return newCard;
+  }
+
+  var firstCard = bindCard(firstPerson, card1);
